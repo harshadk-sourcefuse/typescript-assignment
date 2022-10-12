@@ -1,3 +1,4 @@
+import { UserModel } from "../class/UserModel";
 import { Role } from "../Constants";
 import { Model } from "./Model";
 
@@ -10,5 +11,5 @@ export interface User<T,U> extends Model<U>{
     phoneNumber:T;
     address:T;
     role:Role;
-    currentState?:User<T,U>;
+    currentState?:UserModel<T,U>;
 }

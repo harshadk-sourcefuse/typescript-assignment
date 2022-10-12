@@ -39,10 +39,11 @@ export class AssignmentComponent implements OnInit {
   cancelEditUser(userToEdit:User<String,Number>){
     this.users =  this.users.map(user=> {
       if(user.id === userToEdit.id && userToEdit.currentState){
-        user = {...userToEdit.currentState};
+        user = ((<any>Object).assign(new UserModel(), userToEdit.currentState));
         delete user.currentState;
       } return user;
     });
+    console.log(this.users)
   }
 
   saveUserDetails(user:User<String,Number>){

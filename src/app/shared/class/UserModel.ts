@@ -38,7 +38,7 @@ export class UserModel<T, U> implements User<T, U>{
   phoneNumber!: T;
   address!: T;
   role!: Role;
-  currentState?: User<T, U>;
+  currentState?: UserModel<T, U>;
   @formatDate()
   createdOn?: Date;
   modifiedOn?: Date;
