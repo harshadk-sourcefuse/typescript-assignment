@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserModel } from '../shared/class/UserModel';
 import { Constants , Role } from '../shared/Constants';
 import { User } from '../shared/interface/User';
 
@@ -26,7 +27,8 @@ export class AssignmentComponent implements OnInit {
   loadInitialData(){
     if(this.currentState == 0)
       this.currentState = 1;
-    this.users =Constants.Default_Users.map( user=> ({...user}));
+    this.users = Constants.Default_Users.map( user=> ((<any>Object).assign(new UserModel(), user)));
+    
   }
 
   editUser(userToEdit:User<String,Number>){
@@ -41,7 +43,6 @@ export class AssignmentComponent implements OnInit {
         delete user.currentState;
       } return user;
     });
-    console.log(this.users)
   }
 
   saveUserDetails(user:User<String,Number>){
@@ -52,6 +53,5 @@ export class AssignmentComponent implements OnInit {
 
   deleteUser(userToDelete:User<String,Number>){
     this.users = this.users.filter(user=> user.id !==userToDelete.id);
-
   }
 }

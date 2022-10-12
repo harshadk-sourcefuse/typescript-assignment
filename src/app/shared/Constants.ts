@@ -1,6 +1,3 @@
-import { User } from "./interface/User";
-
-
 export enum Role {
     SUPER_ADMIN = 'Super Admin',
     SUBSCRIBER = 'Subscriber',
@@ -9,7 +6,7 @@ export enum Role {
 
 export class Constants{
 
-    public static readonly Default_Users :User<String,Number>[] = [{
+    public static readonly Default_Users = [{
         id:1,
         address:"ABC Street 1, India",
         createdOn: new Date(),

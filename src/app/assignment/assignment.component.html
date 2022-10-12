@@ -85,7 +85,7 @@
                 </div>
             </td>
             <td  [id]="'user-'+user.id+'-createdOn'">
-                {{user.createdOn | date : 'dd MMM, YYYY'}}
+                {{user.createdOn}}
             </td>
             <td  [id]="'user-'+user.id+'-action'">
                 <div *ngIf="!user.currentState">
